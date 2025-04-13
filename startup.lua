@@ -1,4 +1,6 @@
 local log = require "/os/lib/log"
+local apps = require "/os/lib/app"
+local git = require "/os/lib/git
 
 local function getInstalledApps(folder)
     local list = fs.list(folder)
