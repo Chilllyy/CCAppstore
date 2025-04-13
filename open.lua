@@ -85,16 +85,13 @@ end
 function register_click()
     while true do
         local event, click, x, y = os.pullEvent("mouse_click")
+        if x == MAX_X and y == 1 then return end
         if not grid[x] or not grid[x][y] then goto continue end
 
         local app = grid[x][y]
         setPos(3, 3)
         setBG(colors.lightGray)
-
-        if x == MAX_X and y == 1 then
-            os.reboot()
-        end
-
+        
         if click == 1 then --Left Click, install app
             if app.installed then
                 setFG(colors.red)
