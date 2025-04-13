@@ -99,19 +99,23 @@ function register_click()
                 sleep(0.5)
                 redraw()
             else
+                setFG(colors.black)
+                write("Installing, please wait")
+                git.clone(app.git_user, app.git_repo, "main", "/apps" .. app.name)
                 setFG(colors.green)
                 write("App was installed")
-                git.clone(app.git_user, app.git_repo, "main", "/apps/" .. app.name)
                 updateAppList()
                 sleep(0.5)
                 redraw()
             end
         elseif click == 2 then --Right Click, uninstall app
             if app.installed then --Uninstall app
+                setFG(colors.black)
+                write("Uninstalling, please wait")
                 fs.delete("/apps/" .. app.name)
-                updateAppList()
                 setFG(colors.green)
                 write("App was uninstalled")
+                updateAppList()
                 sleep(0.5)
                 redraw()
             else
