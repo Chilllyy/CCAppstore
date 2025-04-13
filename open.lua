@@ -13,10 +13,7 @@ local grid = {}
 local app_list = git.getWebTable("Chilllyy", "CCAppList", "main", "apps.json")
 
 function init()
-    setBG(colors.lightGray)
-    term.clear()
-    drawAppList()
-    drawBorders()
+    redraw()
 
     while true do
         sleep(1)
@@ -32,6 +29,10 @@ function redraw()
     term.clear()
     drawAppList()
     drawBorders()
+    box(1, MAX_X, 1, MAX_X, colors.red)
+    setPos(1, MAX_X, 1, MAX_X)
+    setFG(colors.white)
+    write("X")
 end
 
 function drawAppList()
@@ -89,6 +90,10 @@ function register_click()
         local app = grid[x][y]
         setPos(3, 3)
         setBG(colors.lightGray)
+
+        if x == MAX_X and y == 1 then
+            os.reboot()
+        end
 
         if click == 1 then --Left Click, install app
             if app.installed then
