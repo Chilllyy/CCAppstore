@@ -97,10 +97,10 @@ function register_click()
                 sleep(0.5)
                 redraw()
             else
+                setFG(colors.green)
+                write("App was installed")
                 git.clone(app.git_user, app.git_repo, "main", "/apps/" .. app.name)
                 updateAppList()
-                setFG(colors.green)
-                write("App was Installed")
                 sleep(0.5)
                 redraw()
             end
