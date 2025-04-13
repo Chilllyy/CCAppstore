@@ -101,7 +101,7 @@ function register_click()
             else
                 setFG(colors.black)
                 write("Installing, please wait")
-                git.clone(app.git_user, app.git_repo, "main", "/apps" .. app.name)
+                git.clone(app.git_user, app.git_repo, "main", "/apps/" .. app.name)
                 redraw()
                 setPos(3, 3)
                 setFG(colors.green)
