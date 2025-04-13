@@ -44,8 +44,8 @@ function checkAppForUpdate(app)
 end
 
 function run()
-    getInstalledApps("/apps")
-    getInstalledApps("/os/apps")
+    getInstalledApps("/apps/")
+    getInstalledApps("/os/apps/")
 end
 
 return {run = run}
