@@ -32,7 +32,7 @@ function redraw()
     box(MAX_X, 1, MAX_X, 1, colors.red)
     setPos(MAX_X, 1)
     setFG(colors.white)
-    write("X")
+    write("x")
 end
 
 function drawAppList()
